@@ -1,0 +1,33 @@
+﻿<Window x:Class="LAB2_NETD3202_ANDRE_AGRIPPA.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LAB2_NETD3202_ANDRE_AGRIPPA"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid x:Name ="winMainWindow">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Margin="50">
+            <ListView>
+                <ListViewItem x:Name ="lsvItemLendOut"  Content="Lend Out" Height="100" Selected="lsvItemLendOut_Selected"/>
+                <ListViewItem x:Name ="lsvItemViewLendOut"  Content="View Lend Out" Height="100"/>
+            </ListView>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Margin="50">
+            <Label x:Name="txtLendOut" Content="Lend Out" HorizontalAlignment="Center"/>
+            <Label x:Name="lblName" Content="Name" Target="{Binding ElementName=txtName}"/>
+            <TextBox x:Name="txtName" />
+            <Label x:Name="lblEmployeeID" Content="EmployeeID" Target="{Binding ElementName=txtEmployeeID}"/>
+            <TextBox x:Name="txtEmployeeID" />
+            <Label x:Name="lblDescOfEquipment" Content="Desc of Equipment" Target="{Binding ElementName=txtDescOfEquipment}"/>
+            <TextBox x:Name="txtDescOfEquipment" />
+            <Label x:Name="lblContactPhoneNumber" Content="Contact Phone #" Target="{Binding ElementName=txtContactPhoneNumber}"/>
+            <TextBox x:Name="txtContactPhoneNumber" />
+            <Button x:Name="btnAddToDatabase" Content="Add to Database" Margin="50"/>
+        </StackPanel>
+    </Grid>
+</Window>

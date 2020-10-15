@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+ * Name: Andre Agrippa
+ * Date: 10/15/2020
+ * Course: NETD 3202
+ * Purpose: View equipment page functionality
+ * File: ViewEquipment.xaml.cs
+ */
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -20,14 +27,17 @@ namespace LAB2_NETD3202_ANDRE_AGRIPPA
     /// </summary>
     public partial class ViewEquipment : UserControl
     {
+        //Initialize ViewEquipment contents
         public ViewEquipment()
         {
             InitializeComponent();
+            //Display database contents
             FillDataGrid();
         }
-
+        //This function will display the contents of 
         private void FillDataGrid()
         {
+            //Try to display the contents of the database
             try
             {
                 string connectString = Properties.Settings.Default.connect_string;
@@ -47,6 +57,7 @@ namespace LAB2_NETD3202_ANDRE_AGRIPPA
                  
                 viewEquipmentGrid.ItemsSource = dt.DefaultView;
             }
+            //If contents cannot be displayed, display exception
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());

@@ -1,13 +1,17 @@
-﻿<UserControl x:Class="LAB2_NETD3202_ANDRE_AGRIPPA.AddEquipment"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:LAB2_NETD3202_ANDRE_AGRIPPA"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+﻿<!--Beginning of user control, variable names found here-->
+<UserControl x:Class="LAB2_NETD3202_ANDRE_AGRIPPA.AddEquipment"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                 xmlns:local="clr-namespace:LAB2_NETD3202_ANDRE_AGRIPPA"
+                 mc:Ignorable="d" 
+                 d:DesignHeight="450" d:DesignWidth="800">
+    <!--Beginning of grid-->
     <Grid>
+        <!--Beginning of data grid-->
         <DataGrid Name="addEquipmentGrid"/>
+        <!--Beginning of stack panel-->
         <StackPanel Grid.Column="1" Margin="50">
             <Label x:Name="txtLendOut" Content="Lend Out" HorizontalAlignment="Center"/>
             <Label x:Name="lblName" Content="Name" Target="{Binding ElementName=txtName}"/>
@@ -20,5 +24,8 @@
             <TextBox x:Name="txtContactPhoneNumber" />
             <Button x:Name="btnAddToDatabase" Content="Add to Database" Margin="50" Click="btnAddToDatabase_Click" />
         </StackPanel>
+        <!--End of stack panel-->
     </Grid>
+    <!--End of grid-->
 </UserControl>
+<!--End of user control-->

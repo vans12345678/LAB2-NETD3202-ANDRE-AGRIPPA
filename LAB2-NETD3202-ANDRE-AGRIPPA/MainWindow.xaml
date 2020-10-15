@@ -12,22 +12,12 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0" Margin="50">
-            <ListView>
-                <ListViewItem x:Name ="lsvItemLendOut"  Content="Lend Out" Height="100" Selected="lsvItemLendOut_Selected"/>
+            <ListView SelectionChanged="ListView_SelectionChanged">
+                <ListViewItem x:Name ="lsvItemLendOut"  Content="Lend Out" Height="100" />
                 <ListViewItem x:Name ="lsvItemViewLendOut"  Content="View Lend Out" Height="100"/>
             </ListView>
         </StackPanel>
-        <StackPanel Grid.Column="1" Margin="50">
-            <Label x:Name="txtLendOut" Content="Lend Out" HorizontalAlignment="Center"/>
-            <Label x:Name="lblName" Content="Name" Target="{Binding ElementName=txtName}"/>
-            <TextBox x:Name="txtName" />
-            <Label x:Name="lblEmployeeID" Content="EmployeeID" Target="{Binding ElementName=txtEmployeeID}"/>
-            <TextBox x:Name="txtEmployeeID" />
-            <Label x:Name="lblDescOfEquipment" Content="Desc of Equipment" Target="{Binding ElementName=txtDescOfEquipment}"/>
-            <TextBox x:Name="txtDescOfEquipment" />
-            <Label x:Name="lblContactPhoneNumber" Content="Contact Phone #" Target="{Binding ElementName=txtContactPhoneNumber}"/>
-            <TextBox x:Name="txtContactPhoneNumber" />
-            <Button x:Name="btnAddToDatabase" Content="Add to Database" Margin="50" Click="btnAddToDatabase_Click"/>
-        </StackPanel>
+        <Grid Grid.Column="1" Background="White" x:Name="ContentPanel">
+        </Grid>
     </Grid>
 </Window>

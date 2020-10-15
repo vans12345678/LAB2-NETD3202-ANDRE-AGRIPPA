@@ -24,65 +24,30 @@ namespace LAB2_NETD3202_ANDRE_AGRIPPA
         public MainWindow()
         {
             InitializeComponent();
+            Control addEquipment = new AddEquipment();
+
+            ContentPanel.Children.Add(addEquipment);
         }
 
-        private void lsvItemLendOut_Selected(object sender, RoutedEventArgs e)
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            ListView listView = e.Source as ListView;
 
-        }
-
-        private void AddEquipmentToDatabase(object sender, RoutedEventArgs e)
-        {
-            // try
-            // {
-            //     string connectString = Properties.Settings.Default.connect_string;
-            //
-            //     SqlConnection conn = new SqlConnection(connectString);
-            //     conn.Open();
-            //
-            //     string insertQuery = "INSERT INTO Equipment (name, empID, desc, phone) VALUES" +
-            //                          "('" + txtName.Text + "', '" + txtEmployeeID.Text + "', '" + txtDescOfEquipment.Text + "', '" + txtContactPhoneNumber.Text + "')";
-            //
-            //     SqlCommand command = new SqlCommand(insertQuery, conn);
-            //
-            //     command.ExecuteNonQuery();
-            //     conn.Close();
-            //
-            //     MessageBox.Show("Successfully added equipment entry");
-            // }
-            // catch (Exception exception)
-            // {
-            //     Console.WriteLine(exception);
-            //     throw;
-            // }
-            
-        }
-
-        private void btnAddToDatabase_Click(object sender, RoutedEventArgs e)
-        {
-            try
+            if (listView != null)
             {
-                string connectString = Properties.Settings.Default.connect_string;
-
-                SqlConnection conn = new SqlConnection(connectString);
-                conn.Open();
-
-                string insertQuery = "INSERT INTO [Equipment] (name, empID, description, phone) VALUES('" + txtName.Text + "', '" + int.Parse(txtEmployeeID.Text) + "', '" + txtDescOfEquipment.Text + "', '" + txtContactPhoneNumber.Text + "')";
-
-                SqlCommand command = new SqlCommand(insertQuery, conn);
-
-                command.ExecuteNonQuery();
-                conn.Close();
-
-                MessageBox.Show("Successfully added equipment entry");
+                ContentPanel.Children.Clear();
+                if (listView.SelectedItem.Equals(lsvItemLendOut))
+                {
+                    Control addEquipment = new AddEquipment();
+                    this.ContentPanel.Children.Add(addEquipment);
+                }
+                if (listView.SelectedItem.Equals(lsvItemViewLendOut))
+                {
+                    Control viewEquipment = new ViewEquipment();
+                    this.ContentPanel.Children.Add(viewEquipment);
+                }
             }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception);
-                throw;
-            }
-
         }
     }
-    }
+}
 

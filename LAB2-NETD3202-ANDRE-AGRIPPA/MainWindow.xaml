@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LAB2_NETD3202_ANDRE_AGRIPPA"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Midsize LLP" Height="450" Width="800">
     <Grid x:Name ="winMainWindow">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -27,7 +27,7 @@
             <TextBox x:Name="txtDescOfEquipment" />
             <Label x:Name="lblContactPhoneNumber" Content="Contact Phone #" Target="{Binding ElementName=txtContactPhoneNumber}"/>
             <TextBox x:Name="txtContactPhoneNumber" />
-            <Button x:Name="btnAddToDatabase" Content="Add to Database" Margin="50"/>
+            <Button x:Name="btnAddToDatabase" Content="Add to Database" Margin="50" Click="btnAddToDatabase_Click"/>
         </StackPanel>
     </Grid>
 </Window>

@@ -5,6 +5,7 @@
  * Purpose: Add equipment page functionality
  * File: AddEquipment.xaml.cs
  */
+
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;

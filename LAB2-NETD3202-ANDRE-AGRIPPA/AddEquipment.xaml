@@ -13,7 +13,7 @@
         <DataGrid Name="addEquipmentGrid"/>
         <!--Beginning of stack panel-->
         <StackPanel Grid.Column="1" Margin="50">
-            <Label x:Name="txtLendOut" Content="Lend Out" HorizontalAlignment="Center"/>
+            <Label x:Name="lblLendOut" Content="Lend Out" HorizontalAlignment="Center"/>
             <Label x:Name="lblName" Content="Name" Target="{Binding ElementName=txtName}"/>
             <TextBox x:Name="txtName" />
             <Label x:Name="lblEmployeeID" Content="EmployeeID" Target="{Binding ElementName=txtEmployeeID}"/>

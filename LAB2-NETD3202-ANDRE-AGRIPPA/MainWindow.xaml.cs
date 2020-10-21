@@ -59,6 +59,12 @@ namespace LAB2_NETD3202_ANDRE_AGRIPPA
                     Control viewEquipment = new ViewEquipment();
                     this.ContentPanel.Children.Add(viewEquipment);
                 }
+                if (listView.SelectedItem.Equals(lsvItemSearch))
+                {
+                    //SearchEquipment is a custom user control from SearchEquipment.xaml
+                    Control searchEquipment = new SearchEquipment();
+                    this.ContentPanel.Children.Add(searchEquipment);
+                }
             }
         }
     }

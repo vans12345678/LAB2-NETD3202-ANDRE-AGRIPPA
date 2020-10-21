@@ -20,7 +20,8 @@
                 <ListView SelectionChanged="ListView_SelectionChanged">
                     <ListViewItem x:Name ="lsvItemLendOut"  Content="Lend Out" Height="100" />
                     <ListViewItem x:Name ="lsvItemViewLendOut"  Content="View Lend Out" Height="100"/>
-                </ListView>
+                    <ListViewItem x:Name ="lsvItemSearch"  Content="Search" Height="100"/>
+            </ListView>
             </StackPanel>
             <!--Beginning of Second Grid-->
             <Grid Grid.Column="1" Background="White" x:Name="ContentPanel">

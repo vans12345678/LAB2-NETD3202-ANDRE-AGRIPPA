@@ -1,6 +1,6 @@
 ﻿/*
  * Name: Andre Agrippa
- * Date: 10/15/2020
+ * Date: 10/20/2020
  * Course: NETD 3202
  * Purpose: Search equipment by EmployeeID page functionality
  * File: SearchEquipment.xaml.cs

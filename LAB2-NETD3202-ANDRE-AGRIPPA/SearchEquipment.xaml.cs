@@ -54,12 +54,25 @@ namespace LAB2_NETD3202_ANDRE_AGRIPPA
                 DataTable dt = new DataTable("Equipment");
 
                 sda.Fill(dt);
-                searchEmployeeGrid.ItemsSource = dt.DefaultView;
+                int findEmployeeNumber = dt.Rows.Count;
+                if (findEmployeeNumber > 0)
+                {
+                    searchEmployeeGrid.ItemsSource = dt.DefaultView;
+                }
+                else
+                {
+                    MessageBox.Show("Employee ID cannot be found");
+                    txtSearch.SelectAll();
+                    txtSearch.Focus();
+                }
+                
             }
             //If user input invalid
             else
             {
                 MessageBox.Show("Employee ID must numeric and not empty");
+                txtSearch.SelectAll();
+                txtSearch.Focus();
             }
         }
     }

@@ -44,50 +44,58 @@ namespace LAB2_NETD3202_ANDRE_AGRIPPA
                 //If text employee id is not an empty entry and can be parsed as an integer
                 if (txtEmployeeID.Text != string.Empty && int.TryParse(txtEmployeeID.Text, out employeeID))
                 {
-                    //If text description of equipment is not an empty entry
-                    if (txtDescOfEquipment.Text != string.Empty)
+                    //If employee id found
+                    if (txtEmployeeID.Text != string.Empty)
                     {
-                        //If text phone number is not an empty entry
-                        if (txtContactPhoneNumber.Text != string.Empty)
+                        //If text description of equipment is not an empty entry
+                        if (txtDescOfEquipment.Text != string.Empty)
                         {
-                            //Try to add to database
-                            try
+                            //If text phone number is not an empty entry
+                            if (txtContactPhoneNumber.Text != string.Empty)
                             {
-                                string connectString = Properties.Settings.Default.connect_string;
+                                //Try to add to database
+                                try
+                                {
+                                    string connectString = Properties.Settings.Default.connect_string;
 
-                                SqlConnection conn = new SqlConnection(connectString);
-                                conn.Open();
+                                    SqlConnection conn = new SqlConnection(connectString);
+                                    conn.Open();
 
-                                string insertQuery = "INSERT INTO [Equipment] (name, empID, description, phone) VALUES('" + txtName.Text + "', '" + int.Parse(txtEmployeeID.Text) + "', '" + txtDescOfEquipment.Text + "', '" + txtContactPhoneNumber.Text + "')";
+                                    string insertQuery = "INSERT INTO [Equipment] (name, empID, description, phone) VALUES('" + txtName.Text + "', '" + int.Parse(txtEmployeeID.Text) + "', '" + txtDescOfEquipment.Text + "', '" + txtContactPhoneNumber.Text + "')";
 
-                                SqlCommand command = new SqlCommand(insertQuery, conn);
+                                    SqlCommand command = new SqlCommand(insertQuery, conn);
 
-                                command.ExecuteNonQuery();
-                                conn.Close();
+                                    command.ExecuteNonQuery();
+                                    conn.Close();
 
-                                MessageBox.Show("Successfully added equipment entry");
+                                    MessageBox.Show("Successfully added equipment entry");
+                                }
+                                //Will catch and display exception if there is an error adding to database
+                                catch (Exception exception)
+                                {
+                                    MessageBox.Show(exception.ToString());
+                                    throw;
+                                }
                             }
-                            //Will catch and display exception if there is an error adding to database
-                            catch (Exception exception)
+                            //If phone number is empty
+                            else
                             {
-                                MessageBox.Show(exception.ToString());
-                                throw;
+                                MessageBox.Show("Phone number cannot be empty");
+                                txtContactPhoneNumber.SelectAll();
+                                txtContactPhoneNumber.Focus();
                             }
                         }
-                        //If phone number is empty
+                        //If description is empty
                         else
                         {
-                            MessageBox.Show("Phone number cannot be empty");
-                            txtContactPhoneNumber.SelectAll();
-                            txtContactPhoneNumber.Focus();
+                            MessageBox.Show("Description of Equipment cannot be empty");
+                            txtDescOfEquipment.SelectAll();
+                            txtDescOfEquipment.Focus();
                         }
                     }
-                    //If description is empty
                     else
                     {
-                        MessageBox.Show("Description of Equipment cannot be empty");
-                        txtDescOfEquipment.SelectAll();
-                        txtDescOfEquipment.Focus();
+
                     }
                     //If employee ID is empty or not numeric
                 }
